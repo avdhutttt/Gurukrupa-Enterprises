@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your Digital vCard</title>
+
+        <style>
+            /* ================================================
+   MODERN PREMIUM UI (GLASS + BLUE GRADIENT THEME)
+================================================ */
+            :root {
+                --primary: #0ea5e9;
+                --primary-dark: #0284c7;
+                --accent: #f43f5e;
+                --bg: #f3f4f6;
+                --card: rgba(255, 255, 255, 0.7);
+                --text: #0f172a;
+                --muted: #64748b;
+                --border: rgba(255, 255, 255, 0.35);
+                --success: #10b981;
+
+                --glass-blur: blur(14px);
+                --glass-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Poppins', sans-serif;
+                background: linear-gradient(135deg, #e0f7ff, #fdfbff);
+                padding-bottom: 90px;
+                color: var(--text);
+            }
+
+            .container {
+                max-width: 480px;
+                margin: auto;
+            }
+
+            /* HEADER */
+            .hero {
+                background: linear-gradient(135deg, #0284c7, #0ea5e9);
+                padding: 40px 20px 25px;
+                text-align: center;
+                color: #fff;
+                border-bottom-left-radius: 40px;
+                border-bottom-right-radius: 40px;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            }
+
+            .hero img {
+                width: 120px;
+                height: 120px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 4px solid white;
+                margin-bottom: 10px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+                font-weight: 700;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            /* SECTIONS */
+            .section {
+                display: none;
+                padding: 16px;
+            }
+
+            .section.active {
+                display: block;
+            }
+
+            .section-title {
+                font-size: 20px;
+                margin-bottom: 12px;
+                color: var(--primary);
+                font-weight: 700;
+            }
+
+            /* CARDS */
+            .card {
+                background: var(--card);
+                backdrop-filter: var(--glass-blur);
+                padding: 16px;
+                border-radius: 16px;
+                margin-bottom: 14px;
+                box-shadow: var(--glass-shadow);
+            }
+
+            /* GALLERY */
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 10px;
+            }
+
+            .gallery img {
+                width: 100%;
+                border-radius: 12px;
+            }
+
+            /* SERVICES */
+            .service-box {
+                padding: 14px;
+                background: white;
+                border-radius: 14px;
+                margin-bottom: 10px;
+                box-shadow: var(--glass-shadow);
+            }
+
+            /* CONTACT BUTTONS */
+            .contact-btn {
+                display: block;
+                text-align: center;
+                padding: 12px;
+                background: var(--primary);
+                color: white;
+                text-decoration: none;
+                border-radius: 10px;
+                margin-bottom: 10px;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            /* BOTTOM NAV */
+            .navbar {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                background: #0f172a;
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 0;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+
+            .navbar a {
+                color: #cbd5e1;
+                font-size: 13px;
+                text-align: center;
+            }
+
+            .navbar a.active {
+                color: #38bdf8;
+            }
+
+            /* FLOATING WHATSAPP */
+            #wa-btn {
+                position: fixed;
+                right: 15px;
+                bottom: 80px;
+                background: #25D366;
+                color: white;
+                padding: 16px;
+                border-radius: 50%;
+                text-decoration: none;
+                font-size: 24px;
+                box-shadow: var(--glass-shadow);
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <!-- HEADER -->
+            <div class="hero">
+                <img src="https://via.placeholder.com/120" alt="Profile" />
+                <h1>Your Name</h1>
+                <p>Your Tagline / Business Category</p>
+            </div>
+
+            <!-- HOME -->
+            <div id="home" class="section active">
+                <div class="section-title">Welcome</div>
+                <div class="card">
+                    <p>This is your digital vCard with premium UI.</p>
+                </div>
+            </div>
+
+            <!-- ABOUT -->
+            <div id="about" class="section">
+                <div class="section-title">About</div>
+                <div class="card">
+                    <p>Write about your business, history, experience etc.</p>
+                </div>
+            </div>
+
+            <!-- SERVICES -->
+            <div id="services" class="section">
+                <div class="section-title">Services</div>
+
+                <div class="service-box">✔ Service One</div>
+                <div class="service-box">✔ Service Two</div>
+                <div class="service-box">✔ Service Three</div>
+            </div>
+
+            <!-- GALLERY -->
+            <div id="gallery" class="section">
+                <div class="section-title">Gallery</div>
+                <div class="gallery">
+                    <img src="https://via.placeholder.com/300" />
+                    <img src="https://via.placeholder.com/300" />
+                    <img src="https://via.placeholder.com/300" />
+                </div>
+            </div>
+
+            <!-- CONTACT -->
+            <div id="contact" class="section">
+                <div class="section-title">Contact</div>
+
+                <a class="contact-btn" href="tel:+910000000000">📞 Call Now</a>
+                <a class="contact-btn" href="https://wa.me/910000000000">💬 WhatsApp</a>
+                <a class="contact-btn" href="mailto:example@mail.com">✉ Email</a>
+            </div>
+
+            <!-- SHARE -->
+            <div id="share" class="section">
+                <div class="section-title">Share</div>
+
+                <div class="card">
+                    <p>Click below to share:</p>
+                    <a class="contact-btn"
+                        href="javascript:navigator.share({title:'My vCard', text:'Check out my digital card', url:window.location.href});">
+                        📤 Share Profile
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FLOATING WHATSAPP BUTTON -->
+        <a id="wa-btn" href="https://wa.me/910000000000">💬</a>
+
+        <!-- BOTTOM NAV -->
+        <div class="navbar">
+            <a onclick="showTab('home')" id="nav-home" class="active">Home</a>
+            <a onclick="showTab('about')" id="nav-about">About</a>
+            <a onclick="showTab('services')" id="nav-services">Services</a>
+            <a onclick="showTab('gallery')" id="nav-gallery">Gallery</a>
+            <a onclick="showTab('contact')" id="nav-contact">Contact</a>
+            <a onclick="showTab('share')" id="nav-share">Share</a>
+        </div>
+
+        <!-- JAVASCRIPT -->
+        <script>
+            function showTab(tab) {
+                document.querySelectorAll(".section").forEach(sec => sec.classList.remove("active"));
+                document.getElementById(tab).classList.add("active");
+
+                document.querySelectorAll(".navbar a").forEach(nav => nav.classList.remove("active"));
+                document.getElementById("nav-" + tab).classList.add("active");
+            }
+        </script>
+
+    </body>
+
+</html>

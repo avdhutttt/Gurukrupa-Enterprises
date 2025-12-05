@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gurukrupa Enterprises</title>
+        <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+        <style>
+            :root {
+                --primary: #6366f1;
+                --primary-dark: #4f46e5;
+                --primary-light: #818cf8;
+                --accent: #f43f5e;
+                --accent-light: #fb7185;
+                --bg: #0f172a;
+                --bg-light: #1e293b;
+                --card: rgba(30, 41, 59, 0.8);
+                --card-solid: #1e293b;
+                --text: #f1f5f9;
+                --text-muted: #94a3b8;
+                --border: rgba(148, 163, 184, 0.2);
+                --success: #10b981;
+                --warning: #f59e0b;
+                --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+                --glass: rgba(255, 255, 255, 0.05);
+                --glass-border: rgba(255, 255, 255, 0.1);
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Poppins', system-ui, sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                padding-bottom: 90px;
+                min-height: 100vh;
+            }
+
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background:
+                    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(244, 63, 94, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.08) 0%, transparent 40%);
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            .container {
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
+            /* Animations */
+            @keyframes float {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+            }
+
+            @keyframes pulse-glow {
+
+                0%,
+                100% {
+                    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+                }
+
+                50% {
+                    box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+                }
+            }
+
+            @keyframes shimmer {
+                0% {
+                    background-position: -200% 0;
+                }
+
+                100% {
+                    background-position: 200% 0;
+                }
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .section.active {
+                animation: fadeInUp 0.4s ease-out;
+            }
+
+            /* Header / Hero */
+            .hero {
+                background: var(--gradient-1);
+                color: #fff;
+                text-align: center;
+                padding: 40px 20px 30px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+                animation: float 8s ease-in-out infinite;
+            }
+
+            .hero::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 60px;
+                background: linear-gradient(to top, var(--bg), transparent);
+            }
+
+            .hero .logo-img {
+                width: 110px;
+                height: 110px;
+                border-radius: 50%;
+                border: 4px solid rgba(255, 255, 255, 0.3);
+                object-fit: cover;
+                margin-bottom: 16px;
+                background: #fff;
+                animation: pulse-glow 3s ease-in-out infinite;
+                position: relative;
+                z-index: 1;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+                font-weight: 700;
+                margin-bottom: 6px;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+                position: relative;
+                z-index: 1;
+            }
+
+            .hero .tagline {
+                font-size: 13px;
+                opacity: 0.9;
+                position: relative;
+                z-index: 1;
+            }
+
+            .hero .views {
+                font-size: 11px;
+                opacity: 0.7;
+                margin-top: 10px;
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                background: rgba(255, 255, 255, 0.15);
+                padding: 4px 12px;
+                border-radius: 20px;
+                backdrop-filter: blur(10px);
+                position: relative;
+                z-index: 1;
+            }
+
+            /* Action buttons row */
+            .actions {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                padding: 20px 16px;
+                background: var(--glass);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--glass-border);
+                margin-top: -20px;
+                position: relative;
+                z-index: 2;
+            }
+
+            .actions a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 6px;
+                text-decoration: none;
+                color: var(--text);
+                font-size: 10px;
+                font-weight: 500;
+                padding: 12px 14px;
+                border-radius: 16px;
+                background: var(--card);
+                border: 1px solid var(--glass-border);
+                transition: all 0.3s ease;
+                min-width: 70px;
+            }
+
+            .actions a:hover {
+                transform: translateY(-3px);
+                background: var(--primary);
+                border-color: var(--primary);
+            }
+
+            .actions a:nth-child(1):hover {
+                background: var(--primary);
+            }
+
+            .actions a:nth-child(2):hover {
+                background: #25d366;
+            }
+
+            .actions a:nth-child(3):hover {
+                background: #ea4335;
+            }
+
+            .actions a:nth-child(4):hover {
+                background: #f59e0b;
+            }
+
+            .actions svg {
+                width: 24px;
+                height: 24px;
+                fill: currentColor;
+            }
+
+            /* Contact info bar */
+            .contact-bar {
+                background: var(--card);
+                backdrop-filter: blur(20px);
+                padding: 16px;
+                border-bottom: 1px solid var(--glass-border);
+                border-radius: 0 0 20px 20px;
+                margin: 0 12px;
+            }
+
+            .contact-bar div {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                font-size: 13px;
+                margin-bottom: 12px;
+                color: var(--text-muted);
+            }
+
+            .contact-bar div:last-child {
+                margin-bottom: 0;
+            }
+
+            .contact-bar svg {
+                width: 18px;
+                height: 18px;
+                fill: var(--primary-light);
+                flex-shrink: 0;
+                margin-top: 2px;
+            }
+
+            .contact-bar a {
+                color: var(--primary-light);
+                text-decoration: none;
+                transition: color 0.2s;
+            }
+
+            .contact-bar a:hover {
+                color: var(--text);
+            }
+
+            /* Section styling */
+            .section {
+                display: block;
+                padding: 20px 16px;
+            }
+
+            .section-title {
+                font-size: 20px;
+                font-weight: 700;
+                color: var(--text);
+                margin-bottom: 18px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid transparent;
+                background: var(--gradient-1);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: inline-block;
+                position: relative;
+            }
+
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 50px;
+                height: 3px;
+                background: var(--gradient-1);
+                border-radius: 2px;
+            }
+
+            .card {
+                background: var(--card);
+                backdrop-filter: blur(20px);
+                border-radius: 20px;
+                padding: 20px;
+                margin-bottom: 16px;
+                border: 1px solid var(--glass-border);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            }
+
+            .card h3 {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: var(--text);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .card h3::before {
+                content: '';
+                width: 4px;
+                height: 20px;
+                background: var(--gradient-1);
+                border-radius: 2px;
+            }
+
+            .card p {
+                font-size: 14px;
+                color: var(--text-muted);
+                line-height: 1.7;
+            }
+
+            /* Info list */
+            .info-list {
+                list-style: none;
+            }
+
+            .info-list li {
+                display: flex;
+                gap: 10px;
+                font-size: 14px;
+                padding: 14px 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .info-list li:last-child {
+                border-bottom: none;
+            }
+
+            .info-list .label {
+                color: var(--text-muted);
+                min-width: 120px;
+            }
+
+            .info-list .value {
+                color: var(--text);
+                font-weight: 500;
+            }
+
+            /* Specialities */
+            .spec-list {
+                list-style: none;
+            }
+
+            .spec-list li {
+                font-size: 14px;
+                padding: 10px 14px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                background: var(--glass);
+                border-radius: 12px;
+                margin-bottom: 8px;
+                transition: all 0.3s;
+            }
+
+            .spec-list li:hover {
+                background: rgba(99, 102, 241, 0.1);
+                transform: translateX(5px);
+            }
+
+            .spec-list li::before {
+                content: "✓";
+                color: var(--success);
+                font-weight: bold;
+                width: 24px;
+                height: 24px;
+                background: rgba(16, 185, 129, 0.2);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 12px;
+            }
+
+            /* Links section */
+            .link-card {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                background: var(--card);
+                backdrop-filter: blur(20px);
+                border-radius: 16px;
+                padding: 16px 20px;
+                margin-bottom: 12px;
+                text-decoration: none;
+                color: var(--text);
+                border: 1px solid var(--glass-border);
+                transition: all 0.3s ease;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .link-card::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 4px;
+                background: var(--gradient-1);
+            }
+
+            .link-card:hover {
+                transform: translateX(8px);
+                border-color: var(--primary);
+                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+            }
+
+            .link-card .icon-wrap {
+                width: 50px;
+                height: 50px;
+                border-radius: 14px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .link-card:nth-child(1) .icon-wrap {
+                background: linear-gradient(135deg, #1877f2, #4c6ef5);
+            }
+
+            .link-card:nth-child(2) .icon-wrap {
+                background: linear-gradient(135deg, #f59e0b, #ef4444);
+            }
+
+            .link-card:nth-child(3) .icon-wrap {
+                background: linear-gradient(135deg, #ea4335, #dc2626);
+            }
+
+            .link-card svg {
+                width: 26px;
+                height: 26px;
+                fill: #fff;
+            }
+
+            .link-card .link-info h4 {
+                font-size: 15px;
+                font-weight: 600;
+                margin-bottom: 2px;
+            }
+
+            .link-card .link-info p {
+                font-size: 13px;
+                color: var(--text-muted);
+            }
+
+            /* Services grid */
+            .services-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .service-card {
+                background: var(--card);
+                backdrop-filter: blur(20px);
+                border-radius: 20px;
+                overflow: hidden;
+                border: 1px solid var(--glass-border);
+                transition: all 0.3s ease;
+            }
+
+            .service-card:hover {
+                transform: translateY(-5px) scale(1.02);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            }
+
+            .service-card img {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+            }
+
+            .service-card .service-info {
+                padding: 14px;
+            }
+
+            .service-card h4 {
+                font-size: 13px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                min-height: 32px;
+                color: var(--text);
+            }
+
+            .service-card .enquiry-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                background: linear-gradient(135deg, #25d366, #128c7e);
+                color: #fff;
+                font-size: 12px;
+                font-weight: 600;
+                padding: 8px 16px;
+                border-radius: 25px;
+                text-decoration: none;
+                transition: all 0.3s;
+            }
+
+            .service-card .enquiry-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            }
+
+            /* Payment section */
+            .payment-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 16px;
+                background: var(--glass);
+                border-radius: 12px;
+                margin-bottom: 10px;
+                font-size: 14px;
+                border: 1px solid var(--glass-border);
+            }
+
+            .payment-item .label {
+                color: var(--text-muted);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .payment-item .value {
+                font-weight: 600;
+                color: var(--primary-light);
+            }
+
+            .qr-section {
+                text-align: center;
+                margin-top: 20px;
+                padding: 24px;
+                background: var(--glass);
+                border-radius: 20px;
+                border: 1px solid var(--glass-border);
+            }
+
+            .qr-section img {
+                width: 180px;
+                height: 180px;
+                border-radius: 16px;
+                padding: 10px;
+                background: #fff;
+            }
+
+            .qr-section p {
+                font-size: 13px;
+                color: var(--text-muted);
+                margin-top: 12px;
+            }
+
+            /* Gallery grid */
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+
+            .gallery-grid img {
+                width: 100%;
+                aspect-ratio: 1;
+                object-fit: cover;
+                border-radius: 16px;
+                cursor: pointer;
+                transition: all 0.3s;
+                border: 2px solid transparent;
+            }
+
+            .gallery-grid img:hover {
+                transform: scale(1.08);
+                border-color: var(--primary);
+                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            }
+
+            /* Feedback section */
+            .feedback-item {
+                background: var(--card);
+                backdrop-filter: blur(20px);
+                border-radius: 20px;
+                padding: 18px;
+                margin-bottom: 14px;
+                border: 1px solid var(--glass-border);
+            }
+
+            .feedback-item .fb-header {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 8px;
+            }
+
+            .feedback-item .fb-name {
+                font-weight: 600;
+                font-size: 15px;
+                color: var(--text);
+            }
+
+            .feedback-item .fb-date {
+                font-size: 12px;
+                color: var(--text-muted);
+            }
+
+            .feedback-item .fb-text {
+                font-size: 14px;
+                color: var(--text-muted);
+                line-height: 1.6;
+            }
+
+            .feedback-item .fb-rating {
+                color: #fbbf24;
+                font-size: 16px;
+                margin-top: 8px;
+            }
+
+            .feedback-form,
+            .enquiry-form {
+                background: var(--card);
+                backdrop-filter: blur(20px);
+                border-radius: 20px;
+                padding: 24px;
+                margin-top: 16px;
+                border: 1px solid var(--glass-border);
+            }
+
+            .feedback-form h4,
+            .enquiry-form h4 {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 18px;
+                background: var(--gradient-1);
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .form-group {
+                margin-bottom: 16px;
+            }
+
+            .form-group label {
+                display: block;
+                font-size: 13px;
+                font-weight: 500;
+                margin-bottom: 8px;
+                color: var(--text-muted);
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                width: 100%;
+                padding: 14px 16px;
+                font-size: 14px;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                font-family: inherit;
+                background: var(--bg-light);
+                color: var(--text);
+                transition: all 0.3s;
+            }
+
+            .form-group textarea {
+                min-height: 100px;
+                resize: vertical;
+            }
+
+            .form-group input:focus,
+            .form-group textarea:focus,
+            .form-group select:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+            }
+
+            .form-group input::placeholder,
+            .form-group textarea::placeholder {
+                color: var(--text-muted);
+            }
+
+            .submit-btn {
+                width: 100%;
+                background: var(--gradient-1);
+                color: #fff;
+                font-size: 15px;
+                font-weight: 600;
+                padding: 14px;
+                border: none;
+                border-radius: 12px;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+
+            .submit-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            }
+
+            /* Share section */
+            .share-url {
+                background: var(--glass);
+                border: 1px solid var(--glass-border);
+                border-radius: 12px;
+                padding: 16px;
+                font-size: 13px;
+                word-break: break-all;
+                color: var(--primary-light);
+                margin-bottom: 16px;
+            }
+
+            .share-qr {
+                text-align: center;
+                margin: 20px 0;
+                padding: 24px;
+                background: var(--glass);
+                border-radius: 20px;
+                border: 1px solid var(--glass-border);
+            }
+
+            .share-qr img {
+                width: 160px;
+                height: 160px;
+                border-radius: 16px;
+                padding: 10px;
+                background: #fff;
+            }
+
+            .share-qr p {
+                font-size: 13px;
+                color: var(--text-muted);
+                margin-top: 12px;
+            }
+
+            .share-buttons {
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .share-buttons button {
+                flex: 1;
+                min-width: 130px;
+                padding: 14px 20px;
+                font-size: 14px;
+                font-weight: 600;
+                border: none;
+                border-radius: 14px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                transition: all 0.3s;
+            }
+
+            .share-buttons button:hover {
+                transform: translateY(-2px);
+            }
+
+            .share-buttons .btn-share {
+                background: var(--gradient-1);
+                color: #fff;
+            }
+
+            .share-buttons .btn-share:hover {
+                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            }
+
+            .share-buttons .btn-qr {
+                background: var(--glass);
+                color: var(--text);
+                border: 1px solid var(--glass-border);
+            }
+
+            .share-buttons .btn-qr:hover {
+                background: var(--card);
+            }
+
+            .whatsapp-share {
+                margin-top: 16px;
+                display: flex;
+                gap: 10px;
+            }
+
+            .whatsapp-share input {
+                flex: 1;
+                padding: 14px 16px;
+                font-size: 14px;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                background: var(--bg-light);
+                color: var(--text);
+            }
+
+            .whatsapp-share input:focus {
+                outline: none;
+                border-color: #25d366;
+            }
+
+            .whatsapp-share button {
+                background: linear-gradient(135deg, #25d366, #128c7e);
+                color: #fff;
+                border: none;
+                padding: 14px 24px;
+                border-radius: 12px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+
+            .whatsapp-share button:hover {
+                box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            }
+
+            /* Bottom Navigation */
+            .bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(20px);
+                display: flex;
+                justify-content: space-around;
+                padding: 8px 4px 12px;
+                z-index: 100;
+                border-top: 1px solid var(--glass-border);
+            }
+
+            .bottom-nav a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 4px;
+                text-decoration: none;
+                color: var(--text-muted);
+                font-size: 9px;
+                font-weight: 500;
+                padding: 6px 8px;
+                border-radius: 12px;
+                transition: all 0.3s;
+                position: relative;
+            }
+
+            .bottom-nav a.active {
+                color: var(--primary-light);
+            }
+
+            .bottom-nav a.active::before {
+                content: '';
+                position: absolute;
+                top: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30px;
+                height: 3px;
+                background: var(--gradient-1);
+                border-radius: 0 0 3px 3px;
+            }
+
+            .bottom-nav a:hover {
+                color: var(--primary-light);
+            }
+
+            .bottom-nav svg {
+                width: 22px;
+                height: 22px;
+                fill: currentColor;
+            }
+
+            /* Footer */
+            .footer {
+                text-align: center;
+                padding: 24px 16px;
+                font-size: 12px;
+                color: var(--text-muted);
+            }
+
+            .footer a {
+                color: var(--primary-light);
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            /* Utility */
+            .mt-8 {
+                margin-top: 8px;
+            }
+
+            .mt-12 {
+                margin-top: 12px;
+            }
+
+            .mt-16 {
+                margin-top: 16px;
+            }
+
+            /* Scrollbar */
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background: var(--bg);
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: var(--primary);
+                border-radius: 3px;
+            }
+
+            /* Selection */
+            ::selection {
+                background: var(--primary);
+                color: #fff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Hero Header -->
+            <div class="hero">
+                <img src="assets/logo.svg" alt="Gurukrupa Enterprises" class="logo-img">
+                <h1>GURUKRUPA ENTERPRISES</h1>
+                <p class="tagline">Printers, Stationery & Computer Consumables</p>
+                <p class="views">Views: 150</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actions">
+                <a href="tel:+919820830179">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.24 1.01l-2.21 2.23z" />
+                    </svg>
+                    Call Me
+                </a>
+                <a href="https://wa.me/919820830179?text=Got%20reference%20from%20your%20Digital%20vCard.%20Want%20to%20know%20more%20details."
+                    target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    Whatsapp
+                </a>
+                <a href="https://maps.google.com/?q=Chembur+Mumbai" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" />
+                    </svg>
+                    Direction
+                </a>
+                <a href="mailto:gurukrupa_sunil69@yahoo.in">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    Mail
+                </a>
+            </div>
+
+            <!-- Contact Bar -->
+            <div class="contact-bar">
+                <div>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                    </svg>
+                    <span>B/2, Satyanarayan Seva Society, N. G. Acharya Marg, Chembur (E), Mumbai - 400 071</span>
+                </div>
+                <div>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    <a href="mailto:gurukrupa_sunil69@yahoo.in">gurukrupa_sunil69@yahoo.in</a>
+                </div>
+                <div>
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    <a href="tel:+919820830179">+91-9820830179</a> / <a href="tel:+919029012005">9029012005</a>
+                </div>
+            </div>
+
+            <!-- HOME Section -->
+            <section id="home" class="section active">
+                <div class="card">
+                    <p>Welcome to <strong>Gurukrupa Enterprises</strong>, your trusted partner for all printing,
+                        stationery, and computer consumable needs in Mumbai.</p>
+                </div>
+            </section>
+
+            <!-- LINKS Section -->
+            <section id="links" class="section">
+                <h2 class="section-title">LINKS</h2>
+                <a href="mailto:gurukrupa_sunil69@yahoo.in" class="link-card">
+                    <div class="icon-wrap">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                    </div>
+                    <div class="link-info">
+                        <h4>Email</h4>
+                        <p>gurukrupa_sunil69@yahoo.in</p>
+                    </div>
+                </a>
+                <a href="tel:+919820830179" class="link-card">
+                    <div class="icon-wrap">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                    </div>
+                    <div class="link-info">
+                        <h4>Call Us</h4>
+                        <p>+91-9820830179</p>
+                    </div>
+                </a>
+                <a href="https://wa.me/919820830179" target="_blank" rel="noopener" class="link-card">
+                    <div class="icon-wrap">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                    </div>
+                    <div class="link-info">
+                        <h4>WhatsApp</h4>
+                        <p>Chat with us</p>
+                    </div>
+                </a>
+
+                <!-- Google Maps -->
+                <div class="card mt-16">
+                    <h3>Our Location</h3>
+                    <div style="border-radius:12px;overflow:hidden;margin-top:12px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.5!2d72.9!3d19.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDAzJzAwLjAiTiA3MsKwNTQnMDAuMCJF!5e0!3m2!1sen!2sin!4v1701388800000!5m2!1sen!2sin"
+                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p style="margin-top:10px;font-size:13px;color:var(--text-muted);">B/2, Satyanarayan Seva Society,
+                        N. G. Acharya Marg, Chembur (E), Mumbai - 400 071</p>
+                </div>
+            </section>
+
+            <!-- ABOUT US Section -->
+            <section id="about" class="section">
+                <h2 class="section-title">ABOUT US</h2>
+                <div class="card">
+                    <ul class="info-list">
+                        <li><span class="label">Business Name</span><span class="value">: Gurukrupa Enterprises</span>
+                        </li>
+                        <li><span class="label">Category</span><span class="value">: Printing & Stationery</span></li>
+                        <li><span class="label">GST Number</span><span class="value">: 27ADMPT8495R1Z0</span></li>
+                        <li><span class="label">Nature of Business</span><span class="value">: Commercial printing,
+                                stationery & consumables</span></li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Our Specialities</h3>
+                    <ul class="spec-list mt-8">
+                        <li>Complete client satisfaction</li>
+                        <li>Ethical business policies</li>
+                        <li>Affordable pricing</li>
+                        <li>Qualitative products</li>
+                        <li>Reliable services</li>
+                        <li>Ability to undertake bulk orders</li>
+                        <li>Live in touch with our customers</li>
+                        <li>Transparent dealings</li>
+                        <li>Easy payment mode</li>
+                        <li>We listen, we understand, we provide solution</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <p>Welcome to <strong>Gurukrupa Enterprises</strong>, your trusted partner for printing solutions
+                        and stationery supplies. With a commitment to quality, affordability, and customer satisfaction,
+                        we offer a wide range of professional services.</p>
+                    <p class="mt-12">At Gurukrupa Enterprises, we understand that quality printing and office supplies
+                        are essential for every business. That's why we have built a reputation for providing reliable,
+                        affordable, and timely services tailored to meet the unique needs of our clients.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Our Services</h3>
+                    <p class="mt-8">✨ <strong>Commercial Colour Printing</strong> — Single and multi-colour printing on
+                        100gsm & 120gsm papers. Perfect for flyers, brochures, letterheads and more.</p>
+                    <p class="mt-8">✨ <strong>Office Stationery</strong> — All types of office stationery including
+                        registers, files, envelopes, stickers and more.</p>
+                    <p class="mt-8">✨ <strong>Computer Consumables</strong> — Printer inks, toners, USB drives,
+                        keyboards, mouse and basic peripherals.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Why Choose Gurukrupa Enterprises?</h3>
+                    <p class="mt-8">✔️ <strong>Quality Products</strong> — We deliver high-quality printing and genuine
+                        stationery products.</p>
+                    <p class="mt-8">✔️ <strong>Affordable Pricing</strong> — Competitive prices for all our services and
+                        products.</p>
+                    <p class="mt-8">✔️ <strong>Fast Turnaround</strong> — Quick delivery and prompt service.</p>
+                    <p class="mt-8">✔️ <strong>Customer First</strong> — We believe in building long-term relationships
+                        based on trust.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Our Mission</h3>
+                    <p class="mt-8">To provide affordable, high-quality printing and stationery solutions that help
+                        businesses and individuals meet their needs efficiently.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Our Vision</h3>
+                    <p class="mt-8">To become the most trusted name for printing and stationery supplies in Mumbai,
+                        known for our quality, reliability and customer-first approach.</p>
+                    <p class="mt-12">⭐ <strong>Gurukrupa Enterprises</strong> – Quality Printing & Stationery, Always!
+                    </p>
+                </div>
+            </section>
+
+            <!-- SERVICES Section -->
+            <section id="services" class="section">
+                <h2 class="section-title">OUR SERVICES</h2>
+                <div class="card" style="margin-bottom:16px;">
+                    <p>All Types of <strong>Commercial & Multi Colour Printing</strong>, Computer Stationery & Office
+                        Stationery, Flex, Vinyl Printing & Computer Consumables & etc.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=400&h=240&fit=crop"
+                            alt="B/L Printing Blue">
+                        <div class="service-info">
+                            <h4>B/L Printing 100gsm Alabaster Paper A4 (Blue)</h4>
+                            <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20B/L%20Printing%20100gsm%20Alabaster%20Paper%20A4%20(Blue).%20Please%20provide%20rate%20and%20details."
+                                target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=400&h=240&fit=crop"
+                            alt="B/L Printing White">
+                        <div class="service-info">
+                            <h4>B/L Printing 100gsm Alabaster Paper A4 (White)</h4>
+                            <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20B/L%20Printing%20100gsm%20Alabaster%20Paper%20A4%20(White).%20Please%20provide%20rate%20and%20details."
+                                target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=240&fit=crop"
+                            alt="Multi Colour Printing">
+                        <div class="service-info">
+                            <h4>Commercial Multi Colour Printing</h4>
+                            <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Commercial%20Multi%20Colour%20Printing.%20Please%20provide%20details."
+                                target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=400&h=240&fit=crop"
+                            alt="Office Stationery">
+                        <div class="service-info">
+                            <h4>Office Stationery Supplies</h4>
+                            <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Office%20Stationery%20Supplies.%20Please%20provide%20details."
+                                target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=240&fit=crop"
+                            alt="Computer Stationery">
+                        <div class="service-info">
+                            <h4>Computer Stationery</h4>
+                            <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Computer%20Stationery.%20Please%20provide%20details."
+                                target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=240&fit=crop"
+                            alt="Computer Consumables">
+                        <div class="service-info">
+                            <h4>Computer Consumables</h4>
+                            <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Computer%20Consumables.%20Please%20provide%20details."
+                                target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=400&h=240&fit=crop"
+                            alt="Flex Printing">
+                        <div class="service-info">
+                            <h4>Flex & Vinyl Printing</h4>
+                            <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Flex%20%26%20Vinyl%20Printing.%20Please%20provide%20details."
+                                target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=240&fit=crop"
+                            alt="Tax Invoice">
+                        <div class="service-info">
+                            <h4>Tax Invoice & Bill Book Printing</h4>
+                            <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Tax%20Invoice%20%26%20Bill%20Book%20Printing.%20Please%20provide%20details."
+                                target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PAYMENT Section -->
+            <section id="payment" class="section">
+                <h2 class="section-title">PAYMENT</h2>
+                <div class="card">
+                    <h3>Bank Details</h3>
+                    <div class="payment-item">
+                        <span class="label">Bank Name</span>
+                        <span class="value">Cosmos Bank Fort Branch</span>
+                    </div>
+                    <div class="payment-item">
+                        <span class="label">Account Number</span>
+                        <span class="value">036100101014</span>
+                    </div>
+                    <div class="payment-item">
+                        <span class="label">IFSC Code</span>
+                        <span class="value">COSB0000036</span>
+                    </div>
+                    <div class="payment-item">
+                        <span class="label">Account Name</span>
+                        <span class="value">Gurukrupa Enterprises</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>UPI Payment</h3>
+                    <div class="payment-item">
+                        <span class="label">Paytm / PhonePe / GPay</span>
+                        <span class="value">+91-9820830179</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Scan to Pay</h3>
+                    <div class="qr-section">
+                        <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=upi://pay?pa=9820830179@paytm&pn=Gurukrupa%20Enterprises"
+                            alt="Payment QR">
+                        <p>Scan via any UPI app</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GALLERY Section -->
+            <section id="gallery" class="section">
+                <h2 class="section-title">GALLERY</h2>
+                <div class="gallery-grid">
+                    <img src="https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=300&h=300&fit=crop"
+                        alt="B/L Printing Blue Paper">
+                    <img src="https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea?w=300&h=300&fit=crop"
+                        alt="B/L Printing White Paper">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&h=300&fit=crop"
+                        alt="Colour Printing">
+                    <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=300&h=300&fit=crop"
+                        alt="Computer Stationery">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=300&h=300&fit=crop"
+                        alt="Printer Consumables">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&h=300&fit=crop"
+                        alt="Invoice Books">
+                    <img src="https://images.unsplash.com/photo-1589330694653-ded6df03f754?w=300&h=300&fit=crop"
+                        alt="Notebooks & Registers">
+                    <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=300&h=300&fit=crop"
+                        alt="Files & Folders">
+                    <img src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=300&h=300&fit=crop"
+                        alt="Flex Printing">
+                </div>
+            </section>
+
+            <!-- FEEDBACK Section -->
+            <section id="feedback" class="section">
+                <h2 class="section-title">FEEDBACKS</h2>
+                <div id="feedback-list"></div>
+                <div class="feedback-form">
+                    <h4>Give Feedback</h4>
+                    <form id="feedback-form">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" id="fb-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Select a Rating</label>
+                            <select id="fb-rating" required>
+                                <option value="">Choose...</option>
+                                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                                <option value="4">⭐⭐⭐⭐ Very Good</option>
+                                <option value="3">⭐⭐⭐ Good</option>
+                                <option value="2">⭐⭐ Fair</option>
+                                <option value="1">⭐ Poor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Feedback</label>
+                            <textarea id="fb-text" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Give Feedback</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- ENQUIRY Section -->
+            <section id="enquiry" class="section">
+                <h2 class="section-title">ENQUIRY FORM</h2>
+                <div class="enquiry-form">
+                    <form id="enquiry-form">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="enq-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" id="enq-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="enq-email">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea id="enq-message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- SHARE Section -->
+            <section id="share" class="section">
+                <h2 class="section-title">SHARE</h2>
+                <div class="share-url" id="share-url"></div>
+                <div class="share-qr">
+                    <p>Scan below QR to open profile:</p>
+                    <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://example.com/gurukrupa"
+                        alt="Profile QR" id="profile-qr">
+                </div>
+                <div class="share-buttons">
+                    <button class="btn-share" onclick="shareProfile()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
+                        </svg>
+                        Share
+                    </button>
+                    <button class="btn-qr" onclick="saveQR()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z" />
+                        </svg>
+                        Save QR
+                    </button>
+                </div>
+                <div class="whatsapp-share mt-16">
+                    <input type="tel" placeholder="+91" id="wa-number">
+                    <button onclick="shareToWhatsApp()">Share</button>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <div class="footer">
+                © 2025 <a href="#">Gurukrupa Enterprises</a>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="#" data-section="home" class="active">
+                <svg viewBox="0 0 24 24">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                </svg>
+                HOME
+            </a>
+            <a href="#" data-section="links">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
+                </svg>
+                LINKS
+            </a>
+            <a href="#" data-section="about">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                ABOUT US
+            </a>
+            <a href="#" data-section="services">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
+                </svg>
+                SERVICES
+            </a>
+            <a href="#" data-section="payment">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                </svg>
+                PAYMENT
+            </a>
+            <a href="#" data-section="gallery">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z" />
+                </svg>
+                GALLERY
+            </a>
+            <a href="#" data-section="feedback">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                </svg>
+                FEEDBACK
+            </a>
+            <a href="#" data-section="enquiry">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                </svg>
+                ENQUIRY
+            </a>
+            <a href="#" data-section="share">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
+                </svg>
+                SHARE
+            </a>
+        </nav>
+
+        <script>
+            const BUSINESS_PHONE = '919820830179';
+            const PAGE_URL = window.location.href;
+
+            // Navigation
+            document.querySelectorAll('.bottom-nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = link.dataset.section;
+                    showSection(sectionId);
+                });
+            });
+
+            function showSection(id) {
+                const section = document.getElementById(id);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+
+                document.querySelectorAll('.bottom-nav a').forEach(a => a.classList.remove('active'));
+                const navLink = document.querySelector(`.bottom-nav a[data-section="${id}"]`);
+                if (navLink) navLink.classList.add('active');
+            }
+
+            // Share URL
+            document.getElementById('share-url').textContent = PAGE_URL;
+            document.getElementById('profile-qr').src = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${encodeURIComponent(PAGE_URL)}`;
+
+            function shareProfile() {
+                if (navigator.share) {
+                    navigator.share({ title: 'Gurukrupa Enterprises', url: PAGE_URL });
+                } else {
+                    navigator.clipboard.writeText(PAGE_URL).then(() => alert('Link copied!'));
+                }
+            }
+
+            function saveQR() {
+                const qr = document.getElementById('profile-qr');
+                const a = document.createElement('a');
+                a.href = qr.src;
+                a.download = 'gurukrupa-qr.png';
+                a.click();
+            }
+
+            function shareToWhatsApp() {
+                const num = document.getElementById('wa-number').value.replace(/\D/g, '');
+                if (num.length >= 10) {
+                    window.open(`https://wa.me/${num}?text=${encodeURIComponent('Check out Gurukrupa Enterprises: ' + PAGE_URL)}`, '_blank');
+                } else {
+                    alert('Please enter a valid phone number');
+                }
+            }
+
+            // Feedback
+            function loadFeedbacks() {
+                const list = document.getElementById('feedback-list');
+                const data = JSON.parse(localStorage.getItem('feedbacks') || '[]');
+                list.innerHTML = data.slice().reverse().map(f => `
+        <div class="feedback-item">
+          <div class="fb-header">
+            <span class="fb-name">${escapeHtml(f.name)}</span>
+            <span class="fb-date">${f.date}</span>
+          </div>
+          <div class="fb-rating">${'⭐'.repeat(f.rating)}</div>
+          <div class="fb-text">${escapeHtml(f.text)}</div>
+        </div>
+      `).join('');
+            }
+
+            function escapeHtml(s) {
+                return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            }
+
+            document.getElementById('feedback-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('fb-name').value;
+                const rating = parseInt(document.getElementById('fb-rating').value);
+                const text = document.getElementById('fb-text').value;
+
+                const arr = JSON.parse(localStorage.getItem('feedbacks') || '[]');
+                arr.push({ name, rating, text, date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) });
+                localStorage.setItem('feedbacks', JSON.stringify(arr));
+
+                loadFeedbacks();
+                e.target.reset();
+                alert('Thank you for your feedback!');
+            });
+
+            // Enquiry Form
+            document.getElementById('enquiry-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('enq-name').value;
+                const phone = document.getElementById('enq-phone').value;
+                const email = document.getElementById('enq-email').value;
+                const message = document.getElementById('enq-message').value;
+
+                const text = `New Enquiry:\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
+                window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
+            });
+
+            // Initialize
+            loadFeedbacks();
+        </script>
+    </body>
+
+</html>
