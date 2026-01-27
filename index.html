@@ -753,6 +753,233 @@
                 box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
             }
 
+            /* Customer Reviews Section */
+            .reviews-container {
+                background: transparent;
+                padding: 0;
+                border: none;
+            }
+
+            .reviews-header {
+                display: flex;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+
+            .review-btn {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 14px 20px;
+                font-size: 14px;
+                font-weight: 600;
+                border: none;
+                border-radius: 12px;
+                cursor: pointer;
+                transition: all 0.3s;
+                color: #fff;
+            }
+
+            .btn-view {
+                background: var(--gradient-1);
+            }
+
+            .btn-view:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            }
+
+            .btn-add {
+                background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            }
+
+            .btn-add:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            }
+
+            .reviews-list {
+                animation: fadeInUp 0.4s ease-out;
+                max-height: 600px;
+                overflow-y: auto;
+                padding-right: 8px;
+            }
+
+            .reviews-list::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .reviews-list::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            .reviews-list::-webkit-scrollbar-thumb {
+                background: var(--primary);
+                border-radius: 3px;
+            }
+
+            .review-item {
+                background: var(--card);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--glass-border);
+                border-radius: 16px;
+                padding: 20px;
+                margin-bottom: 16px;
+                transition: all 0.3s ease;
+                transform-origin: center;
+            }
+
+            .review-item:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 40px rgba(99, 102, 241, 0.25);
+                border-color: var(--primary-light);
+            }
+
+            .review-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 12px;
+            }
+
+            .review-name {
+                font-weight: 700;
+                font-size: 16px;
+                color: var(--text);
+            }
+
+            .review-rating {
+                font-size: 14px;
+                color: #fbbf24;
+                letter-spacing: 3px;
+                font-weight: 600;
+            }
+
+            .review-date {
+                font-size: 12px;
+                color: var(--text-muted);
+                margin-top: 4px;
+            }
+
+            .review-text {
+                font-size: 14px;
+                color: var(--text-muted);
+                line-height: 1.7;
+                font-style: normal;
+                margin-top: 10px;
+                padding: 12px 0;
+                border-top: 1px solid var(--glass-border);
+                border-bottom: 1px solid var(--glass-border);
+            }
+
+            .reviews-empty {
+                text-align: center;
+                padding: 60px 20px;
+                color: var(--text-muted);
+            }
+
+            .reviews-empty svg {
+                width: 64px;
+                height: 64px;
+                margin-bottom: 20px;
+                opacity: 0.4;
+            }
+
+            .reviews-empty p {
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+
+            .reviews-empty .btn-add-empty {
+                display: inline-block;
+                background: var(--gradient-1);
+                color: #fff;
+                padding: 12px 24px;
+                border-radius: 10px;
+                text-decoration: none;
+                font-weight: 600;
+                cursor: pointer;
+                border: none;
+                transition: all 0.3s;
+            }
+
+            .reviews-empty .btn-add-empty:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            }
+
+            /* Review Form */
+            .review-form-container {
+                animation: fadeInUp 0.4s ease-out;
+            }
+
+            .review-form {
+                background: var(--card);
+                backdrop-filter: blur(20px);
+                border: 1px solid var(--glass-border);
+                border-radius: 20px;
+                padding: 24px;
+            }
+
+            .star-rating {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+                gap: 16px;
+                margin-top: 12px;
+            }
+
+            .star-rating input {
+                display: none;
+            }
+
+            .star-rating label {
+                font-size: 32px;
+                cursor: pointer;
+                color: var(--text-muted);
+                transition: all 0.2s;
+                margin: 0 !important;
+                transform-origin: center;
+            }
+
+            .star-rating input:checked ~ label,
+            .star-rating label:hover,
+            .star-rating label:hover ~ label {
+                color: #fbbf24;
+                transform: scale(1.3) rotate(15deg);
+            }
+
+            .form-actions {
+                display: flex;
+                gap: 12px;
+                margin-top: 20px;
+            }
+
+            .submit-btn {
+                flex: 1;
+            }
+
+            .cancel-btn {
+                flex: 1;
+                background: var(--glass);
+                color: var(--text);
+                font-size: 14px;
+                font-weight: 600;
+                padding: 12px;
+                border: 1px solid var(--glass-border);
+                border-radius: 12px;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+
+            .cancel-btn:hover {
+                background: var(--card);
+                border-color: var(--primary);
+                color: var(--primary-light);
+            }
+
             /* Share section */
             .share-url {
                 background: var(--glass);
@@ -1082,7 +1309,7 @@
                     </div>
                     <div class="link-info">
                         <h4>Call Us</h4>
-                        <p>+91-9820830179 / 9324413146</p>
+                        <p>+91-9820830179/ 9324413146</p>
                     </div>
                 </a>
                 <a href="https://wa.me/919820830179" target="_blank" rel="noopener" class="link-card">
@@ -1194,17 +1421,17 @@
                 
                 <div class="services-grid">
                     <div class="service-card">
-                        <img src="assets/printing.jpg" alt="Visiting Cards & Letterhead - Printing Service">
+                        <img src="assets/printing.png" alt="Visiting Cards & Letterhead - Printing Service">
                         <div class="service-info">
-                            <h4>Visiting Cards & Letterhead</h4>
+                            <h4>Visiting Cards </h4>
                             <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Visiting%20Cards%20%26%20Letterhead.%20Please%20provide%20rate%20and%20details."
                                 target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
                         </div>
                     </div>
                     <div class="service-card">
-                        <img src="assets/office%20files.jpg" alt="Registers, Files & Envelopes - Office Supplies">
+                        <img src="assets/office%20files.png" alt="Registers, Files & Envelopes - Office Supplies">
                         <div class="service-info">
-                            <h4>Registers, Files & Envelopes</h4>
+                            <h4>Files and Folders</h4>
                             <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Registers,%20Files%20%26%20Envelopes.%20Please%20provide%20details."
                                 target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
                         </div>
@@ -1218,15 +1445,23 @@
                         </div>
                     </div>
                     <div class="service-card">
-                        <img src="assets/banner.avif" alt="Banner and Brochure Printing - Large Format Printing">
+                        <img src="assets/banner.png" alt="Banner and Brochure Printing - Large Format Printing">
                         <div class="service-info">
-                            <h4>Banner & Brochure Printing</h4>
+                            <h4>Brochure Printing</h4>
                             <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Banner%20%26%20Brochure%20Printing.%20Please%20provide%20details."
                                 target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
                         </div>
                     </div>
                     <div class="service-card">
-                        <img src="assets/tonner.jpg" alt="Toner Cartridges & Refilling - Printer Supplies">
+                        <img src="assets/letterhead.png" alt="Letterheads - Printing Service">
+                        <div class="service-info">
+                            <h4>Letterheads</h4>
+                            <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Letterheads.%20Please%20provide%20details."
+                                target="_blank" rel="noopener" class="enquiry-btn">Enquiry</a>
+                        </div>
+                        </div>
+                        <div class="service-card">
+                            <img src="assets/tonner.jpeg" alt="Toner Cartridges & Refilling - Printer Supplies">
                         <div class="service-info">
                             <h4>Toner Cartridges & Refilling</h4>
                             <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Toner%20Cartridges%20%26%20Refilling.%20Please%20provide%20details."
@@ -1234,7 +1469,7 @@
                         </div>
                     </div>
                     <div class="service-card">
-                        <img src="assets/images%20(1).jpeg" alt="Digital & Screen Printing Services">
+                        <img src="assets/proposal.jpeg" alt="Digital & Screen Printing Services">
                         <div class="service-info">
                             <h4>Digital & Screen Printing</h4>
                             <a href="https://wa.me/919820830179?text=Hi,%20I%20am%20interested%20in%20Digital%20%26%20Screen%20Printing.%20Please%20provide%20details."
@@ -1278,15 +1513,13 @@
                     <h3>UPI Payment</h3>
                     <div class="payment-item">
                         <span class="label">Paytm / PhonePe / GPay</span>
-                        <span class="value">+91-9820830179 / 9324413146</span>
+                        <span class="value">+91-9820830179</span>
                     </div>
                 </div>
                 <div class="card">
                     <h3>Scan to Pay</h3>
                     <div class="qr-section">
-                        <img src="assets/scanner.jpeg" alt="Scanner Icon"
-                            style="width: 180px; height: 180px; margin: 0 auto; display: block; border-radius: 16px;">
-                        <p style="margin-top: 16px;">Scan via any UPI app</p>
+                        <img src="assets/scanner.jpeg" alt="Scanner" style="width: 200px; height: 200px;">
                     </div>
                 </div>
             </section>
@@ -1329,105 +1562,45 @@
                         }
                     </style>
                     <div class="gallery-item">
-                        <img src="assets/img1.jpeg" alt="Toner Cartridge - Computer Consumables">
+                        <img src="assets/printing.png" alt="Stationery Printing - Visiting Cards and Letterhead">
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/img2.jpeg" alt="Printing Services">
+                        <img src="assets/office%20files.png" alt="Office Supplies - Files and Registers">
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/img3.jpeg" alt="Office Supplies">
+                        <img src="assets/cartridges.jpeg" alt="Ink and Toner Cartridges">
                     </div>
                     <div class="gallery-item">
-                        <img src="assets/img4.jpeg" alt="Printing Products">
+                        <img src="assets/offset.avif" alt="Offset Printing - Multi-colour Professional Printing">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/banner.png" alt="Large Format Printing - Banner and Brochure Services">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/letterhead.png" alt="Letterheads - Printing Service">
+                        </div>
+                        
+                        <div class="gallery-item">
+                            <img src="assets/proposal.jpeg" alt="Digital Printing Services">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="assets/ledger.webp" alt="Ledger and Stock Register">
                     </div>
                 </div>
             </section>
 
-            <!-- FEEDBACK Section -->
-            <section id="feedback" class="section">
-                <h2 class="section-title">FEEDBACKS</h2>
-                <div id="feedback-list"></div>
-                <div class="feedback-form">
-                    <h4>Give Feedback</h4>
-                    <form id="feedback-form">
-                        <div class="form-group">
-                            <label>Your Name</label>
-                            <input type="text" id="fb-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Select a Rating</label>
-                            <select id="fb-rating" required>
-                                <option value="">Choose...</option>
-                                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
-                                <option value="4">⭐⭐⭐⭐ Very Good</option>
-                                <option value="3">⭐⭐⭐ Good</option>
-                                <option value="2">⭐⭐ Fair</option>
-                                <option value="1">⭐ Poor</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Your Feedback</label>
-                            <textarea id="fb-text" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Give Feedback</button>
-                    </form>
-                </div>
-            </section>
 
-            <!-- ENQUIRY Section -->
-            <section id="enquiry" class="section">
-                <h2 class="section-title">ENQUIRY FORM</h2>
-                <div class="enquiry-form">
-                    <form id="enquiry-form">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" id="enq-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="tel" id="enq-phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" id="enq-email">
-                        </div>
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea id="enq-message" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send</button>
-                    </form>
-                </div>
-            </section>
 
             <!-- SHARE Section -->
             <section id="share" class="section">
                 <h2 class="section-title">SHARE</h2>
                 <div class="share-url" id="share-url"></div>
                 <div class="share-qr">
-                    <img src="assets/scanner.jpeg" alt="Scanner Icon"
-                        style="width: 180px; height: 180px; margin: 0 auto; display: block; border-radius: 16px;">
-                    <p style="margin-top: 16px;">Scan QR to share profile</p>
-                </div>
-                <div class="share-buttons">
-                    <button class="btn-share" onclick="shareProfile()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
-                        </svg>
-                        Share
-                    </button>
-                    <button class="btn-qr" onclick="saveQR()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z" />
-                        </svg>
-                        Save QR
-                    </button>
+                    <img src="assets/scanner.jpeg" alt="Scanner QR" style="width: 200px; height: 200px;">
                 </div>
                 <div class="whatsapp-share mt-16">
                     <input type="tel" placeholder="+91" id="wa-number">
-                    <button onclick="shareToWhatsApp()">Share</button>
+                    <button onclick="shareToWhatsApp()">Share to WhatsApp</button>
                 </div>
             </section>
 
@@ -1479,19 +1652,6 @@
                 </svg>
                 GALLERY
             </a>
-            <a href="#" data-section="feedback">
-                <svg viewBox="0 0 24 24">
-                    <path
-                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                </svg>
-                FEEDBACK
-            </a>
-            <a href="#" data-section="enquiry">
-                <svg viewBox="0 0 24 24">
-                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
-                </svg>
-                ENQUIRY
-            </a>
             <a href="#" data-section="share">
                 <svg viewBox="0 0 24 24">
                     <path
@@ -1527,7 +1687,13 @@
 
             // Share URL
             document.getElementById('share-url').textContent = PAGE_URL;
-            document.getElementById('profile-qr').src = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${encodeURIComponent(PAGE_URL)}`;
+
+            function downloadScanner() {
+                const a = document.createElement('a');
+                a.href = 'assets/scanner.jpeg';
+                a.download = 'gurukrupa-qr.jpeg';
+                a.click();
+            }
 
             function shareProfile() {
                 if (navigator.share) {
@@ -1553,56 +1719,6 @@
                     alert('Please enter a valid phone number');
                 }
             }
-
-            // Feedback
-            function loadFeedbacks() {
-                const list = document.getElementById('feedback-list');
-                const data = JSON.parse(localStorage.getItem('feedbacks') || '[]');
-                list.innerHTML = data.slice().reverse().map(f => `
-        <div class="feedback-item">
-          <div class="fb-header">
-            <span class="fb-name">${escapeHtml(f.name)}</span>
-            <span class="fb-date">${f.date}</span>
-          </div>
-          <div class="fb-rating">${'⭐'.repeat(f.rating)}</div>
-          <div class="fb-text">${escapeHtml(f.text)}</div>
-        </div>
-      `).join('');
-            }
-
-            function escapeHtml(s) {
-                return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-            }
-
-            document.getElementById('feedback-form').addEventListener('submit', (e) => {
-                e.preventDefault();
-                const name = document.getElementById('fb-name').value;
-                const rating = parseInt(document.getElementById('fb-rating').value);
-                const text = document.getElementById('fb-text').value;
-
-                const arr = JSON.parse(localStorage.getItem('feedbacks') || '[]');
-                arr.push({ name, rating, text, date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) });
-                localStorage.setItem('feedbacks', JSON.stringify(arr));
-
-                loadFeedbacks();
-                e.target.reset();
-                alert('Thank you for your feedback!');
-            });
-
-            // Enquiry Form
-            document.getElementById('enquiry-form').addEventListener('submit', (e) => {
-                e.preventDefault();
-                const name = document.getElementById('enq-name').value;
-                const phone = document.getElementById('enq-phone').value;
-                const email = document.getElementById('enq-email').value;
-                const message = document.getElementById('enq-message').value;
-
-                const text = `New Enquiry:\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`;
-                window.open(`https://wa.me/${BUSINESS_PHONE}?text=${encodeURIComponent(text)}`, '_blank');
-            });
-
-            // Initialize
-            loadFeedbacks();
         </script>
     </body>
 
