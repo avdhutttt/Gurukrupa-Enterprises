@@ -193,6 +193,64 @@
                 z-index: 1;
             }
 
+            /* Reviews section */
+            .reviews-actions { display:flex; gap:8px; align-items:center; justify-content:space-between; margin-bottom:12px; }
+            .review-form { display:flex; flex-direction:column; gap:8px; }
+            .review-form input[type="text"], .review-form textarea, .review-form select {
+                width:100%; padding:8px 10px; border-radius:10px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.03); color:var(--text);
+            }
+            .review-form textarea { min-height:80px; resize:vertical; }
+            .btn-primary { background:var(--primary); color:#fff; padding:8px 12px; border-radius:10px; border:none; cursor:pointer; }
+            .reviews-list { display:flex; flex-direction:column; gap:12px; margin-top:8px; }
+            .review-item { background: rgba(255,255,255,0.03); padding:12px; border-radius:12px; border:1px solid var(--glass-border); }
+            .review-item .meta { display:flex; gap:8px; align-items:center; justify-content:space-between; }
+            .review-item .name { font-weight:700; color:var(--text); }
+            .review-item .date { font-size:12px; color:var(--text-muted); }
+            .review-item .comment { margin-top:8px; color:var(--text-muted); line-height:1.5; }
+            .helpful { font-size:13px; color:var(--text-muted); cursor:pointer; display:inline-flex; gap:8px; align-items:center; }
+            .sort-select { background:transparent; border:1px solid var(--glass-border); color:var(--text); padding:6px 8px; border-radius:8px; }
+
+            /* Rating & visitor UI */
+            .hero-meta {
+                margin-top: 10px;
+                display: flex;
+                gap: 12px;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                z-index: 1;
+                position: relative;
+            }
+
+            .rating { display: inline-flex; gap: 10px; align-items: center; }
+
+            .rating-badge {
+                background: #1f2937;
+                color: #fff;
+                padding: 6px 10px;
+                border-radius: 12px;
+                font-weight: 700;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 13px;
+                border: 1px solid rgba(255,255,255,0.06);
+            }
+
+            .stars { display: inline-flex; gap: 4px; }
+
+            .star {
+                cursor: pointer;
+                font-size: 18px;
+                color: rgba(255,255,255,0.4);
+                transition: color 0.15s, transform 0.12s;
+                user-select: none;
+            }
+
+            .star.hovered, .star.selected { color: #f59e0b; transform: translateY(-2px); }
+
+            .rating-info { font-size: 12px; color: var(--text-muted); }
+
             /* Action buttons row */
             .actions {
                 display: flex;
@@ -1208,7 +1266,7 @@
                 <img src="assets/logo.svg" alt="Gurukrupa Enterprises logo" class="logo-img">
                 <h1>GURUKRUPA ENTERPRISES</h1>
                 <p class="tagline">Printers, Stationery & Computer Consumables</p>
-                <p class="views">Views: 150</p>
+                
             </div>
 
             <!-- Action Buttons -->
@@ -1416,6 +1474,7 @@
             </section>
 
             <!-- SERVICES Section -->
+            
             <section id="services" class="section">
                 <h2 class="section-title">OUR SERVICES</h2>
                 
@@ -1592,6 +1651,7 @@
 
 
             <!-- SHARE Section -->
+            <!-- REVIEWS Section removed -->
             <section id="share" class="section">
                 <h2 class="section-title">SHARE</h2>
                 <div class="share-url" id="share-url"></div>
@@ -1719,7 +1779,76 @@
                     alert('Please enter a valid phone number');
                 }
             }
+
+            /* Revi        nt-    torag           (function(){
+                const REVIEWS    ews_v1'; 
+             t defaultReviews = [
+                     now()-300000, name:'Rajkum            ,  te xt:'Their  s ervice is abs olutely terrible. I ordere d a cake , and they did not deliver.', date: new Date(Date.now()-86400000).toISOString(), helpful:2},
+                      {id:Date.now()-200000, name:'S h araf            ,  te xt:'Delaye d  delivery and  poor communication.', dat e: new D ate(Date.now()-43200000).toISOString(), helpful:1}
+                ] ; 
+
+                function load R evi                                          re tur            ora ge.                 defaultReviews.slice();
+                    }catch(e){ return defaultReviews.sl                    }
+ 
+                function saveRevie                     torage.setItem(REVIEWS_KEY , J            ;
+                }
+
+                function calcAggre                     t votes = list.length;
+                    otal = list.reduce((s,r)=>s             
+                    const av g  =  votes? (total  /  vo tes):                return {votes , avg};
+                               func tion rende r(){                     adReviews();
+                   sort = document.getElementByI            alue || 'helpful';
+                    if(sort==='helpful') list.sort((a,b             ( a.hel pfu l||0) || (new Date(b.dat e)  - new Date(a .d ate)));
+                      else list.sort((a,b)=> new Date(b.d            te));
+
+                      const container = document.getEleme            ');
+                    if(container){
+                               HT ML = '';
+                     .forEach(r => container.app                m(r)));
+                    }
+
+                    const agg             );
+             onst avgEl = document.getElementBy                                const cntEl = document.getElementBy            
+                    if(avgEl) avgEl.textContent = (Math            0) .toFixed(1);
+                    if(cntEl) cnt E l.t e xtContent = agg.v                    saveReviews(list);
+                             function renderRev                     t el = document.createElemen t('            'review-item';
+                    const meta = docum e nt.createElement            ame='meta';
+                    const left = document.cre a teElement                      const name = document.createElement            ame='name'; name.textContent = r.name || 'Anonymous';
+                      const stars = document.createElemen            e.color='#f59e0b'; stars.textContent = '★'.repeat(r.rating) +  ' ☆'.repeat(5-r.rating);
+                    left.appendChild(name) ;  left.append                           const right = document.createElemen                       const date = document.createElement            ame='date'; date.textContent = new Date(r.date).toLocaleSt r ing();
+                    right.appendChild(date);
+                     ndChild(left); meta.append                           const comment = document.createElem            className='comment'; comment.textContent = r.text || '';
+                      const actions = document.createElem            style.marginTop='8px';
+                    const helpful = document.c r eateElem            className='helpful'; helpful.innerHTML = `👍 Helpful (<span clas s ="help-count">${r.helpful||0}</span>)`;
+                    helpful.addEventLis te ner('click', (            .id); });
+                    actio ns .appendChild(helpful);
+                ppendChild(meta); el.appendChil            dChild(actions);
+                    return el;
+                }
+
+              on toggleHel                     list = loadReviews();
+                   idx = list.findIndex(x=>x.id=                    if(idx===-1) return; 
+                            pf ul =  (l ist[idx].help                          saveReviews(list);
+                                         }
+
+               t.addEventL        entLo                          render();
+                     c ons            tElementByI                               form?.addEventListener('submit', (e                      e.preventDefault();
+                             = document.getElemen                ue.trim();
+                        const rating = parseInt(documen                -rating').value,10) || 5;
+                        const text = documen t.getElemen                ue.trim();
+                        if(!text){ alert('Please write                 ;  }
+                         const list = loadReviews();
+                  st.unshift({ id: Date.now(),                 ', rating, text, date: new Date().toISOString(), helpful: 0 });
+                        saveReviews(list);
+                           );
+                                                               yId('review                rollIntoView({behavior:'smooth'});
+                    });
+
+                      doc ument            t-revie            er('change', render);
+                });
+            })();
         </script>
+        
     </body>
 
 </html>
