@@ -6,7 +6,74 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Gurukrupa Enterprises</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
-            /* Reviews JavaScript removed to fix syntax error */
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+        <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+        <style>
+            :root {
+                --primary: #6366f1;
+                --primary-dark: #4f46e5;
+                --primary-light: #818cf8;
+                --accent: #f43f5e;
+                --accent-light: #fb7185;
+                --bg: #0f172a;
+                --bg-light: #1e293b;
+                --card: rgba(30, 41, 59, 0.8);
+                --card-solid: #1e293b;
+                --text: #f1f5f9;
+                --text-muted: #94a3b8;
+                --border: rgba(148, 163, 184, 0.2);
+                --success: #10b981;
+                --warning: #f59e0b;
+                --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+                --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+                --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+                --glass: rgba(255, 255, 255, 0.05);
+                --glass-border: rgba(255, 255, 255, 0.1);
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Poppins', system-ui, sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                padding-bottom: 90px;
+                min-height: 100vh;
+            }
+
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background:
+                    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(244, 63, 94, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 60%, rgba(16, 185, 129, 0.08) 0%, transparent 40%);
+                pointer-events: none;
+                z-index: -1;
+            }
+
+            .container {
+                max-width: 480px;
+                margin: 0 auto;
+            }
+
+            /* Animations */
+            @keyframes float {
+
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
 
                 50% {
                     transform: translateY(-10px);
@@ -1713,73 +1780,7 @@
                 }
             }
 
-            /* Revi        nt-    torag           (function(){
-                const REVIEWS    ews_v1'; 
-             t defaultReviews = [
-                     now()-300000, name:'Rajkum            ,  te xt:'Their  s ervice is abs olutely terrible. I ordere d a cake , and they did not deliver.', date: new Date(Date.now()-86400000).toISOString(), helpful:2},
-                      {id:Date.now()-200000, name:'S h araf            ,  te xt:'Delaye d  delivery and  poor communication.', dat e: new D ate(Date.now()-43200000).toISOString(), helpful:1}
-                ] ; 
-
-                function load R evi                                          re tur            ora ge.                 defaultReviews.slice();
-                    }catch(e){ return defaultReviews.sl                    }
- 
-                function saveRevie                     torage.setItem(REVIEWS_KEY , J            ;
-                }
-
-                function calcAggre                     t votes = list.length;
-                    otal = list.reduce((s,r)=>s             
-                    const av g  =  votes? (total  /  vo tes):                return {votes , avg};
-                               func tion rende r(){                     adReviews();
-                   sort = document.getElementByI            alue || 'helpful';
-                    if(sort==='helpful') list.sort((a,b             ( a.hel pfu l||0) || (new Date(b.dat e)  - new Date(a .d ate)));
-                      else list.sort((a,b)=> new Date(b.d            te));
-
-                      const container = document.getEleme            ');
-                    if(container){
-                               HT ML = '';
-                     .forEach(r => container.app                m(r)));
-                    }
-
-                    const agg             );
-             onst avgEl = document.getElementBy                                const cntEl = document.getElementBy            
-                    if(avgEl) avgEl.textContent = (Math            0) .toFixed(1);
-                    if(cntEl) cnt E l.t e xtContent = agg.v                    saveReviews(list);
-                             function renderRev                     t el = document.createElemen t('            'review-item';
-                    const meta = docum e nt.createElement            ame='meta';
-                    const left = document.cre a teElement                      const name = document.createElement            ame='name'; name.textContent = r.name || 'Anonymous';
-                      const stars = document.createElemen            e.color='#f59e0b'; stars.textContent = '★'.repeat(r.rating) +  ' ☆'.repeat(5-r.rating);
-                    left.appendChild(name) ;  left.append                           const right = document.createElemen                       const date = document.createElement            ame='date'; date.textContent = new Date(r.date).toLocaleSt r ing();
-                    right.appendChild(date);
-                     ndChild(left); meta.append                           const comment = document.createElem            className='comment'; comment.textContent = r.text || '';
-                      const actions = document.createElem            style.marginTop='8px';
-                    const helpful = document.c r eateElem            className='helpful'; helpful.innerHTML = `👍 Helpful (<span clas s ="help-count">${r.helpful||0}</span>)`;
-                    helpful.addEventLis te ner('click', (            .id); });
-                    actio ns .appendChild(helpful);
-                ppendChild(meta); el.appendChil            dChild(actions);
-                    return el;
-                }
-
-              on toggleHel                     list = loadReviews();
-                   idx = list.findIndex(x=>x.id=                    if(idx===-1) return; 
-                            pf ul =  (l ist[idx].help                          saveReviews(list);
-                                         }
-
-               t.addEventL        entLo                          render();
-                     c ons            tElementByI                               form?.addEventListener('submit', (e                      e.preventDefault();
-                             = document.getElemen                ue.trim();
-                        const rating = parseInt(documen                -rating').value,10) || 5;
-                        const text = documen t.getElemen                ue.trim();
-                        if(!text){ alert('Please write                 ;  }
-                         const list = loadReviews();
-                  st.unshift({ id: Date.now(),                 ', rating, text, date: new Date().toISOString(), helpful: 0 });
-                        saveReviews(list);
-                           );
-                                                               yId('review                rollIntoView({behavior:'smooth'});
-                    });
-
-                      doc ument            t-revie            er('change', render);
-                });
-            })();
+                        /* Reviews JavaScript removed to avoid syntax errors */
         </script>
         
     </body>
